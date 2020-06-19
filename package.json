@@ -1,0 +1,14 @@
+{
+  "name": "object-css-json-schema",
+  "version": "1.0.0",
+  "description": "This takes CSS Schema and aims to make it compatible with Object CSS Schema. The main differences are the use of camelCase naming for properties of the object.",
+  "main": "index.js",
+  "scripts": {
+    "build": "node scripts/initial-import.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "camelcase-keys": "^6.2.2"
+  }
+}

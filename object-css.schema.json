@@ -1,0 +1,635 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "CSS Schema",
+  "definitions": {
+    "length": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "integer",
+          "default": "2"
+        },
+        "unit": {
+          "type": "string",
+          "enum": ["px", "em", "%"],
+          "default": "px"
+        }
+      }
+    },
+    "time": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "integer",
+          "default": "2"
+        },
+        "unit": {
+          "type": "string",
+          "enum": ["s", "ms"],
+          "default": "s"
+        }
+      }
+    },
+    "overflow": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": ["visible", "scroll", "hidden", "auto"],
+          "required": true
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "display": {
+      "type": "string",
+      "enum": [
+        "inline",
+        "table-row-group",
+        "table-row",
+        "table-header-group",
+        "table-footer-group",
+        "table-column-group",
+        "table-column",
+        "table-cell",
+        "table-caption",
+        "table",
+        "run-in",
+        "none",
+        "list-item",
+        "inline-table",
+        "inline-flex",
+        "inline-block",
+        "flex",
+        "compact",
+        "block"
+      ],
+      "required": true
+    },
+    "position": {
+      "type": "string",
+      "enum": [
+        "static",
+        "sticky  ",
+        "relative",
+        "page",
+        "fixed",
+        "center",
+        "absolute"
+      ],
+      "required": true
+    },
+    "color": {
+      "type": "string",
+      "format": "color",
+      "title": "color",
+      "default": "#ffa500"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "format": "color",
+      "title": "background-color",
+      "default": "#ffa500"
+    },
+    "fontFamily": {
+      "type": "string",
+      "title": "font-family"
+    },
+    "overflow": {
+      "$ref": "#/definitions/overflow"
+    },
+    "float": {
+      "type": "string",
+      "enum": ["none", "right", "left"],
+      "required": true
+    },
+    "clear": {
+      "type": "string",
+      "enum": ["none", "right", "left", "both"],
+      "required": true
+    },
+    "all": {
+      "type": "string",
+      "enum": ["initial", "unset", "inherit"],
+      "required": true
+    },
+    "animationDirection": {
+      "type": "string",
+      "enum": ["normal", "reverse", "alternate-reverse", "alternate"],
+      "required": true
+    },
+    "animationFillMode": {
+      "type": "string",
+      "enum": ["none", "forwards", "both", "backwards"],
+      "required": true
+    },
+    "animationPlayMode": {
+      "type": "string",
+      "enum": ["running", "paused"],
+      "required": true
+    },
+    "visibility": {
+      "type": "string",
+      "enum": ["visible", "hidden", "collapse"],
+      "required": true
+    },
+    "backfaceVisibility": {
+      "type": "string",
+      "enum": ["visible", "hidden"],
+      "required": true
+    },
+    "backgroundAttachment": {
+      "type": "string",
+      "enum": ["scroll", "local", "fixed"],
+      "required": true
+    },
+    "backgroundClip": {
+      "type": "string",
+      "enum": ["border-box", "padding-box", "content-box"],
+      "required": true
+    },
+    "backgroundOrigin": {
+      "type": "string",
+      "enum": ["padding-box", "content-box", "border-box"],
+      "required": true
+    },
+    "backgroundRepeat": {
+      "type": "string",
+      "enum": [
+        "repeat",
+        "space",
+        "round",
+        "repeat-y",
+        "repeat-x",
+        "repeat no-repeat",
+        "no-repeat"
+      ],
+      "required": true
+    },
+    "borderCollapse": {
+      "type": "string",
+      "enum": ["separate", "collapse"],
+      "required": true
+    },
+    "borderImageRepeat": {
+      "type": "string",
+      "enum": ["stretch", "space", "round", "repeat"],
+      "required": true
+    },
+    "boxDecorationBreak": {
+      "type": "string",
+      "enum": ["slice", "clone"],
+      "required": true
+    },
+    "boxSizing": {
+      "type": "string",
+      "enum": ["content-box", "padding-box", "border-box"],
+      "required": true
+    },
+    "breakBefore": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "right",
+        "page",
+        "left",
+        "column",
+        "avoid-page",
+        "avoid-column",
+        "avoid",
+        "always"
+      ],
+      "required": true
+    },
+    "breakAfter": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "right",
+        "page",
+        "left",
+        "column",
+        "avoid-page",
+        "avoid-column",
+        "avoid",
+        "always"
+      ],
+      "required": true
+    },
+    "breakInside": {
+      "type": "string",
+      "enum": ["auto", "avoid-page", "avoid-column", "avoid"],
+      "required": true
+    },
+    "captionSide": {
+      "type": "string",
+      "enum": ["top", "bottom"],
+      "required": true
+    },
+    "clearAfter": {
+      "type": "string",
+      "enum": [
+        "none",
+        "top",
+        "start",
+        "right",
+        "outside",
+        "left",
+        "inside",
+        "end",
+        "descendants",
+        "bottom",
+        "both"
+      ],
+      "required": true
+    },
+    "columnFill": {
+      "type": "string",
+      "enum": ["balance", "auto"],
+      "required": true
+    },
+    "columnSpan": {
+      "type": "string",
+      "enum": ["none", "all"],
+      "required": true
+    },
+    "columnRuleStyle": {
+      "type": "string",
+      "enum": [
+        "none",
+        "solid",
+        "ridge",
+        "outset",
+        "inset",
+        "hidden",
+        "groove",
+        "double",
+        "dotted",
+        "dashed"
+      ],
+      "required": true
+    },
+    "emptyCells": {
+      "type": "string",
+      "enum": ["show", "hide"],
+      "required": true
+    },
+    "flexDirection": {
+      "type": "string",
+      "enum": ["row", "row-reverse", "column-reverse", "column"],
+      "required": true
+    },
+    "flexWrap": {
+      "type": "string",
+      "enum": ["nowrap", "wrap-reverse", "wrap"],
+      "required": true
+    },
+    "justifyContent": {
+      "type": "string",
+      "enum": [
+        "flex-start",
+        "space-between",
+        "space-around",
+        "flex-end",
+        "center"
+      ],
+      "required": true
+    },
+    "alignItems": {
+      "type": "string",
+      "enum": ["stretch", "flex-start", "flex-end", "center", "baseline"],
+      "required": true
+    },
+    "alignSelf": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "stretch",
+        "flex-start",
+        "flex-end",
+        "center",
+        "baseline"
+      ],
+      "required": true
+    },
+    "alignContent": {
+      "type": "string",
+      "enum": [
+        "stretch",
+        "space-between",
+        "space-around",
+        "flex-start",
+        "flex-end",
+        "center"
+      ],
+      "required": true
+    },
+    "fontStretch": {
+      "type": "string",
+      "enum": [
+        "normal",
+        "ultra-expanded",
+        "ultra-condensed",
+        "semi-expanded",
+        "semi-condensed",
+        "extra-expanded",
+        "extra-condensed",
+        "expanded",
+        "condensed"
+      ],
+      "required": true
+    },
+    "fontSynthesis": {
+      "type": "string",
+      "enum": ["weight style", "weight", "style", "none"],
+      "required": true
+    },
+    "fontKerning": {
+      "type": "string",
+      "enum": ["auto", "normal", "none"],
+      "required": true
+    },
+    "fontVariant": {
+      "type": "string",
+      "enum": [
+        "normal",
+        "unicase",
+        "titling-caps",
+        "small-caps",
+        "petite-caps",
+        "all-small-caps",
+        "all-petite-caps"
+      ],
+      "required": true
+    },
+    "fontVariantCaps": {
+      "type": "string",
+      "enum": [
+        "normal",
+        "unicase",
+        "titling-caps",
+        "small-caps",
+        "petite-caps",
+        "all-small-caps",
+        "all-petite-caps"
+      ],
+      "required": true
+    },
+    "fontStyle": {
+      "type": "string",
+      "enum": ["normal", "oblique", "italic"],
+      "required": true
+    },
+    "fontWeight": {
+      "type": "string",
+      "enum": [
+        "normal",
+        "lighter",
+        "bolder",
+        "bold",
+        "900",
+        "800",
+        "700",
+        "600",
+        "500",
+        "400",
+        "300",
+        "200",
+        "100"
+      ],
+      "required": true
+    },
+    "hangingPunctuation": {
+      "type": "string",
+      "enum": [
+        "none",
+        "last force-end",
+        "last allow-end",
+        "last",
+        "force-end",
+        "first force-end",
+        "first allow-end",
+        "first",
+        "allow-end"
+      ],
+      "required": true
+    },
+    "hyphens": {
+      "type": "string",
+      "enum": ["manual", "none", "auto"],
+      "required": true
+    },
+    "imageResolution": {
+      "type": "string",
+      "enum": ["1dppx", "from-image"],
+      "required": true
+    },
+    "lineBreak": {
+      "type": "string",
+      "enum": ["auto", "strict", "normal", "loose"],
+      "required": true
+    },
+    "listStylePosition": {
+      "type": "string",
+      "enum": ["outside", "inside"],
+      "required": true
+    },
+    "listStyleType": {
+      "type": "string",
+      "enum": [
+        "disc",
+        "upper-roman",
+        "upper-latin",
+        "upper-alpha",
+        "square",
+        "none",
+        "lower-roman",
+        "lower-latin",
+        "lower-greek",
+        "lower-alpha",
+        "georgian",
+        "decimal-leading-zero",
+        "decimal",
+        "circle",
+        "armenian"
+      ],
+      "required": true
+    },
+    "objectFit": {
+      "type": "string",
+      "enum": ["fill", "scale-down", "none", "cover", "contain"],
+      "required": true
+    },
+    "outlineStyle": {
+      "type": "string",
+      "enum": [
+        "none",
+        "solid",
+        "ridge",
+        "outset",
+        "inset",
+        "groove",
+        "double",
+        "dotted",
+        "dashed",
+        "auto"
+      ],
+      "required": true
+    },
+    "overflowWrap": {
+      "type": "string",
+      "enum": ["normal", "break-word"],
+      "required": true
+    },
+    "pageBreakAfter": {
+      "type": "string",
+      "enum": ["auto", "right", "left", "avoid", "always"],
+      "required": true
+    },
+    "pageBreakBefore": {
+      "type": "string",
+      "enum": ["auto", "right", "left", "avoid", "always"],
+      "required": true
+    },
+    "pageBreakInside": {
+      "type": "string",
+      "enum": ["auto", "avoid"],
+      "required": true
+    },
+    "pointerEvents": {
+      "type": "string",
+      "enum": ["auto", "none"],
+      "required": true
+    },
+    "resize": {
+      "type": "string",
+      "enum": ["none", "vertical", "horizontal", "alwbothays"],
+      "required": true
+    },
+    "tableLayout": {
+      "type": "string",
+      "enum": ["auto", "fixed"],
+      "required": true
+    },
+    "textAlignLast": {
+      "type": "string",
+      "enum": ["auto", "start", "right", "left", "justify", "end", "center"],
+      "required": true
+    },
+    "textDecorationLine": {
+      "type": "string",
+      "enum": ["none", "underline", "overline", "line-through", "blink"],
+      "required": true
+    },
+    "textDecorationSkip": {
+      "type": "string",
+      "enum": ["none", "spaces", "objects", "ink", "edges", "box-decoration"],
+      "required": true
+    },
+    "textDecorationPosition": {
+      "type": "string",
+      "enum": ["auto", "under right", "under left", "under", "right", "left"],
+      "required": true
+    },
+    "textDecorationStyle": {
+      "type": "string",
+      "enum": ["solid", "wavy", "double", "dotted", "dashed"],
+      "required": true
+    },
+    "textEmphasisPosition": {
+      "type": "string",
+      "enum": ["over right", "over left", "below right", "below left"],
+      "required": true
+    },
+    "textJustify": {
+      "type": "string",
+      "enum": ["auto", "none", "inter-word", "distribute"],
+      "required": true
+    },
+    "textOrientation": {
+      "type": "string",
+      "enum": [
+        "mixed",
+        "use-glyph-orientation",
+        "upright",
+        "sideways-right",
+        "sideways-left",
+        "sideways"
+      ],
+      "required": true
+    },
+    "transformStyle": {
+      "type": "string",
+      "enum": ["flat", "preserve-3d"],
+      "required": true
+    },
+    "textTransform": {
+      "type": "string",
+      "enum": ["none", "uppercase", "lowercase", "full-width", "capitalize"],
+      "required": true
+    },
+    "unicodeBidi": {
+      "type": "string",
+      "enum": ["normal", "embed", "bidi-override"],
+      "required": true
+    },
+    "whiteSpace": {
+      "type": "string",
+      "enum": ["normal", "pre-wrap", "pre-line", "pre", "nowrap"],
+      "required": true
+    },
+    "wordBreak": {
+      "type": "string",
+      "enum": ["normal", "keep-all", "break-all"],
+      "required": true
+    },
+    "wordWrap": {
+      "type": "string",
+      "enum": ["normal", "break-word"],
+      "required": true
+    },
+    "writingMode": {
+      "type": "string",
+      "enum": ["horizontal-tb", "vertical-rl", "vertical-lr"],
+      "required": true
+    },
+    "marginLeft": {
+      "$ref": "#/definitions/length"
+    },
+    "marginRight": {
+      "$ref": "#/definitions/length"
+    },
+    "marginTop": {
+      "$ref": "#/definitions/length"
+    },
+    "marginBottom": {
+      "$ref": "#/definitions/length"
+    },
+    "paddingRight": {
+      "$ref": "#/definitions/length"
+    },
+    "paddingLeft": {
+      "$ref": "#/definitions/length"
+    },
+    "paddingTop": {
+      "$ref": "#/definitions/length"
+    },
+    "paddingBottom": {
+      "$ref": "#/definitions/length"
+    },
+    "animationDelay": {
+      "$ref": "#/definitions/time"
+    },
+    "animationDuration": {
+      "$ref": "#/definitions/time"
+    },
+    "overflowX": {
+      "$ref": "#/definitions/overflow"
+    },
+    "overflowY": {
+      "$ref": "#/definitions/overflow"
+    }
+  }
+}
