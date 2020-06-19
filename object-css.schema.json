@@ -1,44 +1,21 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "CSS Schema",
   "definitions": {
     "length": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "type": "integer",
-          "default": "2"
-        },
-        "unit": {
-          "type": "string",
-          "enum": ["px", "em", "%"],
-          "default": "px"
-        }
-      }
+      "title": "Length value, in px, em or %",
+      "type": "string",
+      "default": "0px"
     },
     "time": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "type": "integer",
-          "default": "2"
-        },
-        "unit": {
-          "type": "string",
-          "enum": ["s", "ms"],
-          "default": "s"
-        }
-      }
+      "type": "string",
+      "title": "Time value, in s, ms",
+      "default": "100ms"
     },
     "overflow": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "type": "string",
-          "enum": ["visible", "scroll", "hidden", "auto"],
-          "required": true
-        }
-      }
+      "title": "Overflow behaviour",
+      "type": "string",
+      "enum": ["visible", "scroll", "hidden", "auto"]
     }
   },
   "type": "object",
@@ -65,8 +42,7 @@
         "flex",
         "compact",
         "block"
-      ],
-      "required": true
+      ]
     },
     "position": {
       "type": "string",
@@ -78,8 +54,7 @@
         "fixed",
         "center",
         "absolute"
-      ],
-      "required": true
+      ]
     },
     "color": {
       "type": "string",
@@ -102,58 +77,47 @@
     },
     "float": {
       "type": "string",
-      "enum": ["none", "right", "left"],
-      "required": true
+      "enum": ["none", "right", "left"]
     },
     "clear": {
       "type": "string",
-      "enum": ["none", "right", "left", "both"],
-      "required": true
+      "enum": ["none", "right", "left", "both"]
     },
     "all": {
       "type": "string",
-      "enum": ["initial", "unset", "inherit"],
-      "required": true
+      "enum": ["initial", "unset", "inherit"]
     },
     "animationDirection": {
       "type": "string",
-      "enum": ["normal", "reverse", "alternate-reverse", "alternate"],
-      "required": true
+      "enum": ["normal", "reverse", "alternate-reverse", "alternate"]
     },
     "animationFillMode": {
       "type": "string",
-      "enum": ["none", "forwards", "both", "backwards"],
-      "required": true
+      "enum": ["none", "forwards", "both", "backwards"]
     },
     "animationPlayMode": {
       "type": "string",
-      "enum": ["running", "paused"],
-      "required": true
+      "enum": ["running", "paused"]
     },
     "visibility": {
       "type": "string",
-      "enum": ["visible", "hidden", "collapse"],
-      "required": true
+      "enum": ["visible", "hidden", "collapse"]
     },
     "backfaceVisibility": {
       "type": "string",
-      "enum": ["visible", "hidden"],
-      "required": true
+      "enum": ["visible", "hidden"]
     },
     "backgroundAttachment": {
       "type": "string",
-      "enum": ["scroll", "local", "fixed"],
-      "required": true
+      "enum": ["scroll", "local", "fixed"]
     },
     "backgroundClip": {
       "type": "string",
-      "enum": ["border-box", "padding-box", "content-box"],
-      "required": true
+      "enum": ["border-box", "padding-box", "content-box"]
     },
     "backgroundOrigin": {
       "type": "string",
-      "enum": ["padding-box", "content-box", "border-box"],
-      "required": true
+      "enum": ["padding-box", "content-box", "border-box"]
     },
     "backgroundRepeat": {
       "type": "string",
@@ -165,28 +129,23 @@
         "repeat-x",
         "repeat no-repeat",
         "no-repeat"
-      ],
-      "required": true
+      ]
     },
     "borderCollapse": {
       "type": "string",
-      "enum": ["separate", "collapse"],
-      "required": true
+      "enum": ["separate", "collapse"]
     },
     "borderImageRepeat": {
       "type": "string",
-      "enum": ["stretch", "space", "round", "repeat"],
-      "required": true
+      "enum": ["stretch", "space", "round", "repeat"]
     },
     "boxDecorationBreak": {
       "type": "string",
-      "enum": ["slice", "clone"],
-      "required": true
+      "enum": ["slice", "clone"]
     },
     "boxSizing": {
       "type": "string",
-      "enum": ["content-box", "padding-box", "border-box"],
-      "required": true
+      "enum": ["content-box", "padding-box", "border-box"]
     },
     "breakBefore": {
       "type": "string",
@@ -200,8 +159,7 @@
         "avoid-column",
         "avoid",
         "always"
-      ],
-      "required": true
+      ]
     },
     "breakAfter": {
       "type": "string",
@@ -215,18 +173,15 @@
         "avoid-column",
         "avoid",
         "always"
-      ],
-      "required": true
+      ]
     },
     "breakInside": {
       "type": "string",
-      "enum": ["auto", "avoid-page", "avoid-column", "avoid"],
-      "required": true
+      "enum": ["auto", "avoid-page", "avoid-column", "avoid"]
     },
     "captionSide": {
       "type": "string",
-      "enum": ["top", "bottom"],
-      "required": true
+      "enum": ["top", "bottom"]
     },
     "clearAfter": {
       "type": "string",
@@ -242,18 +197,15 @@
         "descendants",
         "bottom",
         "both"
-      ],
-      "required": true
+      ]
     },
     "columnFill": {
       "type": "string",
-      "enum": ["balance", "auto"],
-      "required": true
+      "enum": ["balance", "auto"]
     },
     "columnSpan": {
       "type": "string",
-      "enum": ["none", "all"],
-      "required": true
+      "enum": ["none", "all"]
     },
     "columnRuleStyle": {
       "type": "string",
@@ -268,23 +220,19 @@
         "double",
         "dotted",
         "dashed"
-      ],
-      "required": true
+      ]
     },
     "emptyCells": {
       "type": "string",
-      "enum": ["show", "hide"],
-      "required": true
+      "enum": ["show", "hide"]
     },
     "flexDirection": {
       "type": "string",
-      "enum": ["row", "row-reverse", "column-reverse", "column"],
-      "required": true
+      "enum": ["row", "row-reverse", "column-reverse", "column"]
     },
     "flexWrap": {
       "type": "string",
-      "enum": ["nowrap", "wrap-reverse", "wrap"],
-      "required": true
+      "enum": ["nowrap", "wrap-reverse", "wrap"]
     },
     "justifyContent": {
       "type": "string",
@@ -294,13 +242,11 @@
         "space-around",
         "flex-end",
         "center"
-      ],
-      "required": true
+      ]
     },
     "alignItems": {
       "type": "string",
-      "enum": ["stretch", "flex-start", "flex-end", "center", "baseline"],
-      "required": true
+      "enum": ["stretch", "flex-start", "flex-end", "center", "baseline"]
     },
     "alignSelf": {
       "type": "string",
@@ -311,8 +257,7 @@
         "flex-end",
         "center",
         "baseline"
-      ],
-      "required": true
+      ]
     },
     "alignContent": {
       "type": "string",
@@ -323,8 +268,7 @@
         "flex-start",
         "flex-end",
         "center"
-      ],
-      "required": true
+      ]
     },
     "fontStretch": {
       "type": "string",
@@ -338,18 +282,15 @@
         "extra-condensed",
         "expanded",
         "condensed"
-      ],
-      "required": true
+      ]
     },
     "fontSynthesis": {
       "type": "string",
-      "enum": ["weight style", "weight", "style", "none"],
-      "required": true
+      "enum": ["weight style", "weight", "style", "none"]
     },
     "fontKerning": {
       "type": "string",
-      "enum": ["auto", "normal", "none"],
-      "required": true
+      "enum": ["auto", "normal", "none"]
     },
     "fontVariant": {
       "type": "string",
@@ -361,8 +302,7 @@
         "petite-caps",
         "all-small-caps",
         "all-petite-caps"
-      ],
-      "required": true
+      ]
     },
     "fontVariantCaps": {
       "type": "string",
@@ -374,13 +314,11 @@
         "petite-caps",
         "all-small-caps",
         "all-petite-caps"
-      ],
-      "required": true
+      ]
     },
     "fontStyle": {
       "type": "string",
-      "enum": ["normal", "oblique", "italic"],
-      "required": true
+      "enum": ["normal", "oblique", "italic"]
     },
     "fontWeight": {
       "type": "string",
@@ -398,8 +336,7 @@
         "300",
         "200",
         "100"
-      ],
-      "required": true
+      ]
     },
     "hangingPunctuation": {
       "type": "string",
@@ -413,28 +350,23 @@
         "first allow-end",
         "first",
         "allow-end"
-      ],
-      "required": true
+      ]
     },
     "hyphens": {
       "type": "string",
-      "enum": ["manual", "none", "auto"],
-      "required": true
+      "enum": ["manual", "none", "auto"]
     },
     "imageResolution": {
       "type": "string",
-      "enum": ["1dppx", "from-image"],
-      "required": true
+      "enum": ["1dppx", "from-image"]
     },
     "lineBreak": {
       "type": "string",
-      "enum": ["auto", "strict", "normal", "loose"],
-      "required": true
+      "enum": ["auto", "strict", "normal", "loose"]
     },
     "listStylePosition": {
       "type": "string",
-      "enum": ["outside", "inside"],
-      "required": true
+      "enum": ["outside", "inside"]
     },
     "listStyleType": {
       "type": "string",
@@ -454,13 +386,11 @@
         "decimal",
         "circle",
         "armenian"
-      ],
-      "required": true
+      ]
     },
     "objectFit": {
       "type": "string",
-      "enum": ["fill", "scale-down", "none", "cover", "contain"],
-      "required": true
+      "enum": ["fill", "scale-down", "none", "cover", "contain"]
     },
     "outlineStyle": {
       "type": "string",
@@ -475,78 +405,63 @@
         "dotted",
         "dashed",
         "auto"
-      ],
-      "required": true
+      ]
     },
     "overflowWrap": {
       "type": "string",
-      "enum": ["normal", "break-word"],
-      "required": true
+      "enum": ["normal", "break-word"]
     },
     "pageBreakAfter": {
       "type": "string",
-      "enum": ["auto", "right", "left", "avoid", "always"],
-      "required": true
+      "enum": ["auto", "right", "left", "avoid", "always"]
     },
     "pageBreakBefore": {
       "type": "string",
-      "enum": ["auto", "right", "left", "avoid", "always"],
-      "required": true
+      "enum": ["auto", "right", "left", "avoid", "always"]
     },
     "pageBreakInside": {
       "type": "string",
-      "enum": ["auto", "avoid"],
-      "required": true
+      "enum": ["auto", "avoid"]
     },
     "pointerEvents": {
       "type": "string",
-      "enum": ["auto", "none"],
-      "required": true
+      "enum": ["auto", "none"]
     },
     "resize": {
       "type": "string",
-      "enum": ["none", "vertical", "horizontal", "alwbothays"],
-      "required": true
+      "enum": ["none", "vertical", "horizontal", "alwbothays"]
     },
     "tableLayout": {
       "type": "string",
-      "enum": ["auto", "fixed"],
-      "required": true
+      "enum": ["auto", "fixed"]
     },
     "textAlignLast": {
       "type": "string",
-      "enum": ["auto", "start", "right", "left", "justify", "end", "center"],
-      "required": true
+      "enum": ["auto", "start", "right", "left", "justify", "end", "center"]
     },
     "textDecorationLine": {
       "type": "string",
-      "enum": ["none", "underline", "overline", "line-through", "blink"],
-      "required": true
+      "enum": ["none", "underline", "overline", "line-through", "blink"]
     },
     "textDecorationSkip": {
       "type": "string",
-      "enum": ["none", "spaces", "objects", "ink", "edges", "box-decoration"],
-      "required": true
+      "enum": ["none", "spaces", "objects", "ink", "edges", "box-decoration"]
     },
     "textDecorationPosition": {
       "type": "string",
-      "enum": ["auto", "under right", "under left", "under", "right", "left"],
-      "required": true
+      "enum": ["auto", "under right", "under left", "under", "right", "left"]
     },
     "textDecorationStyle": {
       "type": "string",
-      "enum": ["solid", "wavy", "double", "dotted", "dashed"],
-      "required": true
+      "enum": ["solid", "wavy", "double", "dotted", "dashed"]
     },
     "textEmphasisPosition": {
       "type": "string",
-      "enum": ["over right", "over left", "below right", "below left"],
-      "required": true
+      "enum": ["over right", "over left", "below right", "below left"]
     },
     "textJustify": {
       "type": "string",
-      "enum": ["auto", "none", "inter-word", "distribute"],
-      "required": true
+      "enum": ["auto", "none", "inter-word", "distribute"]
     },
     "textOrientation": {
       "type": "string",
@@ -557,43 +472,35 @@
         "sideways-right",
         "sideways-left",
         "sideways"
-      ],
-      "required": true
+      ]
     },
     "transformStyle": {
       "type": "string",
-      "enum": ["flat", "preserve-3d"],
-      "required": true
+      "enum": ["flat", "preserve-3d"]
     },
     "textTransform": {
       "type": "string",
-      "enum": ["none", "uppercase", "lowercase", "full-width", "capitalize"],
-      "required": true
+      "enum": ["none", "uppercase", "lowercase", "full-width", "capitalize"]
     },
     "unicodeBidi": {
       "type": "string",
-      "enum": ["normal", "embed", "bidi-override"],
-      "required": true
+      "enum": ["normal", "embed", "bidi-override"]
     },
     "whiteSpace": {
       "type": "string",
-      "enum": ["normal", "pre-wrap", "pre-line", "pre", "nowrap"],
-      "required": true
+      "enum": ["normal", "pre-wrap", "pre-line", "pre", "nowrap"]
     },
     "wordBreak": {
       "type": "string",
-      "enum": ["normal", "keep-all", "break-all"],
-      "required": true
+      "enum": ["normal", "keep-all", "break-all"]
     },
     "wordWrap": {
       "type": "string",
-      "enum": ["normal", "break-word"],
-      "required": true
+      "enum": ["normal", "break-word"]
     },
     "writingMode": {
       "type": "string",
-      "enum": ["horizontal-tb", "vertical-rl", "vertical-lr"],
-      "required": true
+      "enum": ["horizontal-tb", "vertical-rl", "vertical-lr"]
     },
     "marginLeft": {
       "$ref": "#/definitions/length"
